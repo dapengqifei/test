@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from rest_framework import routers 
+from rest_framework import routers
+
+from blog import views
 from blog.views import BlogViewSet
 
 router = routers.DefaultRouter()
@@ -23,5 +25,7 @@ router.register('blog',BlogViewSet)
 
 urlpatterns = [
 
+    path('demo/', views.demo),
     path('api/', include(router.urls)),
 ]
+print(urlpatterns)
